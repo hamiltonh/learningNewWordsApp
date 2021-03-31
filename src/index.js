@@ -11,8 +11,11 @@
  * npm install mongoose
  * sudo service mongodb start
  * 
- * 
- * 
+ * npm install webpack -D
+ * npm install -D webpack-cli
+ * npm install -D babel-loader @babel/core @babel/preset-env
+ * npm install vue-loader vue-template-compiler -D
+ * npm install -D vue
  */
 
 

@@ -9,10 +9,10 @@ router.get('/', async (req, res) => {
   res.json(tasks);
 });
 
-router.get('/:id', async (req, res) => {
-  const task = await Word.findById(req.params.id);
-  res.json(task);
-});
+// router.get('/:id', async (req, res) => {
+//   const task = await Word.findById(req.params.id);
+//   res.json(task);
+// });
 
 router.post('/', async (req, res) => {
   const task = new Word(req.body);
