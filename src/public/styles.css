@@ -1,0 +1,15 @@
+* {
+  font-family: monospace;
+}
+.table_content {
+  text-align: center;
+  vertical-align: middle;
+}
+.img-word {
+  margin: 2px;
+  cursor: pointer;
+}
+.img-word:hover {
+  transform: scale(1.5);
+  transition: 500ms;
+}

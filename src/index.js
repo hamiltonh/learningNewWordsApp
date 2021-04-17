@@ -16,6 +16,9 @@
  * npm install -D babel-loader @babel/core @babel/preset-env
  * npm install vue-loader vue-template-compiler -D
  * npm install -D vue
+ * 
+ * 
+ * npm install --save @google-cloud/translate // TO API TRANSLATE
  */
  
 const express = require('express');
@@ -30,7 +33,6 @@ mongoose.connect( URI,
 { useNewUrlParser: true , useUnifiedTopology: true })// add WARNINGS
 .then(db => console.log('DB conectada!'))
 .catch(err => console.log(err))
-
 
 
 // settings

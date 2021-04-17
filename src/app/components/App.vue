@@ -2,7 +2,7 @@
 <template>
     <div>
         <nav class="navbar navbar-light bg-light">
-            <a href="/" class="navbar-brand"> <b>>Learning Words with Nico!</b> </a>
+            <a href="/" class="navbar-brand"> <b> >Learning Words with Nico!</b> </a>
         </nav>
         <div class="container">
             <div class="row pt-5">
@@ -11,7 +11,7 @@
                         <div class="card-body">
                             <form @submit.prevent="saveWord">
                                 <div class="form-group">
-                                    <input type="text" placeholder="Insert word.." class="form-control" v-model="word.text">
+                                    <input type="text" placeholder="Enter word.." class="form-control" v-model="word.text" required>
                                 </div>
                                 <template v-if="toEdit">
                                     <button class="btn btn-primary btn-block form-control"> Update </button>
@@ -23,12 +23,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-7">
-                    <table class="table table-bordered">
+                <div class="col-md-8">
+                    <table class="table table-bordered table-hover table_content">
                         <thead>
                             <tr>
                                 <th>Word</th>
-                                <th>Already Learned?</th>
+                                <th>Definitions</th>
+                                <th>Related image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -37,10 +38,16 @@
                                 <td>{{word.text}}</td>
                                 <td></td>
                                 <td>
-                                    <button @click = "deleteWord(word._id)" class="btn btn-danger">
+                                    <span v-for="image of word.image_url" >
+                                        <img class="img-word" :src=image alt="" height="80px">
+                                        <small>X</small>
+                                    </span>
+                                </td>
+                                <td>
+                                    <button @click = "deleteWord(word._id)" class="btn btn-danger btn-sm">
                                         Delete
                                     </button>
-                                    <button @click = "editWord(word._id)" class="btn btn-secondary">
+                                    <button @click = "editWord(word._id)" class="btn btn-secondary btn-sm">
                                         Update
                                     </button>
                                 </td>
@@ -55,9 +62,6 @@
 </template>  
 
 <script>
-
-//const axios = require("axios")
-//  axios.defaults.crossDomain = true;
 
 class Word {
     constructor(text = '', created_at = new Date()) {
@@ -125,51 +129,9 @@ export default {
                     console.log(this.words)
                 })
 
-                     //Images
-                    // fetch( 'http://glyffix.com/api/Image?word=dream', {
-                    //     method: 'POST',
-                    //     // mode:'no-cors',
-                    //     headers: {
-                    //         'Accept': 'application/json',
-                    //         'Content-Type': 'application/json',
-                    //         'Access-Control-Allow-Origin': '*',
-                    //         'Access-Control-Allow-Headers': '*',
-                    //         'Access-Control-Allow-Methods': 'get'
-                    //     }
-                    // })
-                    // .then(res => console.log(res))
-                    // .then(data => {
-                    //     console.log(data,'FIN')
-                    // })
-                    // .catch(err => console.log(err))
-
-                    // axios.get('http://glyffix.com/api/Image?word=dream')
-                    // .then(res=> console.log(res))
-                    // .catch(err => console.log(err))
-
-                    // Images
-                    // fetch( 'http://glyffix.com/api/Image?word=dream', {
-                    //     method: 'GET',
-                    //     // mode:'no-cors',
-                    //     headers: {
-                    //         'Accept': 'application/json',
-                    //         'Content-Type': 'application/json',
-                    //         'Access-Control-Allow-Origin': '*',
-                    //         'Access-Control-Allow-Headers': '*',
-                    //         'Access-Control-Allow-Methods': 'get',
-                    //          mode: "cors",
-                    //          cache: "default"
-                    //     }
-                    // })
-                    // .then(res => console.log(res))
-                    // .then(data => {
-                    //     console.log(data,'FIN')
-                    // })
-                    // .catch(err => console.log(err))
-
         },
         deleteWord( id ){
-            console.log('id',id);
+            // console.log('id',id);
             fetch( 'api/tasks/'+id ,{
                 method: 'delete',
                 headers: {
@@ -181,6 +143,7 @@ export default {
             .then(data => {
                 this.getWords() 
             })
+
         },
         editWord(id){
 
@@ -197,5 +160,3 @@ export default {
     }
 }
 </script>
-
-//http://glyffix.com/api/Image?word=dream
