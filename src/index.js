@@ -19,6 +19,11 @@
  * 
  * 
  * npm install --save @google-cloud/translate // TO API TRANSLATE
+ * 
+ * Set de mongo remoto con atlas
+ * push github
+ * deploy in Netlify
+ * 
  */
  
 const express = require('express');
