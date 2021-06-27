@@ -1,10 +1,10 @@
 // const fetchData = require('../utils/fetchData')
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
 
-const API = "http://glyffix.com/api/Image?word=word"
-fetch(API)
-    .then(res => res.json())
-    .then(json => console.log(json.data[0].imageurl));
+// const API = "http://glyffix.com/api/Image?word=word"
+// fetch(API)
+//     .then(res => res.json())
+//     .then(json => console.log(json.data[0].imageurl));
 
     
 // const requests = async (API) => {

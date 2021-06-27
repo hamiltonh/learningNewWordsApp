@@ -49,7 +49,6 @@ router.delete('/:id', async (req, res) => {
   });
 })
 
-
 async function getUrlImagenByWord( word ){
   
   const URL_API_IMAGES = 'http://glyffix.com/api/Image?word='

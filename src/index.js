@@ -34,7 +34,7 @@ const cors = require('cors')
 const app = express();
 const mongoose = require('mongoose');
 
-const URI = 'mongodb://localhost/mevn-learning-words2'
+// const URI = 'mongodb://localhost/mevn-learning-words2'
 const URI_REMOTE_DB = 'mongodb+srv://admin_lwp:7uxV5TRm07APnLVE@cluster0.yebr8.mongodb.net/db_lwp?retryWrites=true&w=majority'
 
 mongoose.connect( URI_REMOTE_DB,
