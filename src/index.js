@@ -26,20 +26,19 @@
  * 
  */
  
-const express = require('express');
-const morgan = require('morgan');
-const path = require('path');
+const express = require('express')
+// const morgan = require('morgan') //show requests in console 
+const path = require('path')
 const cors = require('cors')
-
-const app = express();
-const mongoose = require('mongoose');
+const app = express()
+const mongoose = require('mongoose')
 
 // const URI = 'mongodb://localhost/mevn-learning-words2'
 const URI_REMOTE_DB = 'mongodb+srv://admin_lwp:7uxV5TRm07APnLVE@cluster0.yebr8.mongodb.net/db_lwp?retryWrites=true&w=majority'
 
 mongoose.connect( URI_REMOTE_DB,
 { useNewUrlParser: true , useUnifiedTopology: true })// add WARNINGS
-.then(db => console.log('DB conectada!'))
+.then(db => console.log('DB conectada!!!!!!!!!!!'))
 .catch(err => console.log(err))
 
 app.use(cors())
@@ -48,14 +47,14 @@ app.use(cors())
 app.set('port', process.env.PORT || 3000);
 
 // middlewares
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(express.json());
 
 // routes
 app.use('/api/tasks', require('./routes/tasks'));
 
 // static
-app.use(express.static(path.join(__dirname, 'public')));;
+app.use(express.static(path.join(__dirname, 'public')));
 
 // listenning on port
 app.listen(app.get('port'), () => {
