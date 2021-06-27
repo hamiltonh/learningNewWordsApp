@@ -22,7 +22,10 @@
  * 
  * Set de mongo remoto con atlas
  * push github
- * deploy in Netlify
+ * 
+ * deploy in Netlify https://learningwords.netlify.app/
+ * 
+ * deploy  Heroku http://app-lwp.herokuapp.com/
  * 
  */
  
