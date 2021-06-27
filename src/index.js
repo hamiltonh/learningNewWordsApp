@@ -29,6 +29,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const cors = require('cors')
 
 const app = express();
 const mongoose = require('mongoose');
@@ -41,6 +42,7 @@ mongoose.connect( URI_REMOTE_DB,
 .then(db => console.log('DB conectada!'))
 .catch(err => console.log(err))
 
+app.use(cors())
 
 // settings
 app.set('port', process.env.PORT || 3000);
