@@ -8,7 +8,7 @@
     "webpack": "webpack --mode development --watch",
     "build": "webpack --mode production",
     "start": "node src/index.js",
-    "start2": "node src/public/js/bundle.js",
+    "start2": "node src/public/js/bundle.js"
   },
   "keywords": [],
   "author": "",
