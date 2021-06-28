@@ -1,5 +1,5 @@
 /**
- * Steps:
+ * Steps: 
  * git init
  * npm init -y
  * 
