@@ -38,10 +38,12 @@
                                 <td>{{word.text}}</td>
                                 <td></td>
                                 <td>
-                                    <span v-for="image of word.image_url" >
+                                    <!-- <span v-for="image of word.image_url" >
                                         <img class="img-word" :src=image alt="" height="80px">
                                         <small>X</small>
-                                    </span>
+                                    </span> -->
+                                    <img class="img-word" :src=word.url_repository+word.id_image alt="" height="80px">
+                                    
                                 </td>
                                 <td>
                                     <button @click = "deleteWord(word._id)" class="btn btn-danger btn-sm">
@@ -126,7 +128,7 @@ export default {
                 .then(res => res.json())
                 .then(data => {
                     this.words = data
-                    console.log(this.words)
+                    // console.log(this.words)
                 })
 
         },
