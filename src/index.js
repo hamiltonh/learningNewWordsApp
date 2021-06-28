@@ -36,6 +36,8 @@ const cors = require('cors')
 const app = express()
 const mongoose = require('mongoose')
 
+const serverless = require('serverless-http');
+
 // const URI = 'mongodb://localhost/mevn-learning-words2'
 const URI_REMOTE_DB = 'mongodb+srv://admin_lwp:7uxV5TRm07APnLVE@cluster0.yebr8.mongodb.net/db_lwp?retryWrites=true&w=majority'
 
@@ -54,7 +56,10 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.json());
 
 // routes
-app.use('/api/tasks', require('./routes/tasks'));
+// app.use('/api/tasks', require('./routes/tasks'));
+app.use('/.netlify/functions/server', require('./routes/tasks'));
+
+
 
 // static
 app.use(express.static(path.join(__dirname, 'public')));
@@ -63,3 +68,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.listen(app.get('port'), () => {
   console.log(`server on port ${app.get('port')}`);
 });
+
+
+module.exports = app
+module.exports.handler = serverless(app)
